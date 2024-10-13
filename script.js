@@ -91,7 +91,7 @@ function answer(selection) { // parameter der Funktion wird übergeben
     let selectedQuestionNumber = selection.slice(-1);// = 1
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-    if (rightAnswerSelected(selectedQuestionNumber)) { // question right answer = 1
+    if (selectedQuestionNumber == question['right_answer']) { // question right answer = 1
         document.getElementById(selection).parentNode.classList.add('bg-success');
         audio_success.play();
         rightAnswers++;
@@ -103,9 +103,6 @@ function answer(selection) { // parameter der Funktion wird übergeben
     document.getElementById('next-button').disabled = false;
 }
 
-function rightAnswerSelected(selectedQuestionNumber){
-     return selectedQuestionNumber == questions['right_answer']
-}
 
 function nextQuestion() {
     currentQuestion++;
